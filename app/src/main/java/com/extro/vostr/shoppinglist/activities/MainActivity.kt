@@ -1,7 +1,8 @@
-package com.extro.vostr.shoppinglist
+package com.extro.vostr.shoppinglist.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.extro.vostr.shoppinglist.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
