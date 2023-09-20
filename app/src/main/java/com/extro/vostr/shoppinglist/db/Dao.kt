@@ -6,7 +6,7 @@ import androidx.room.Query
 import com.extro.vostr.shoppinglist.entities.NoteItem
 import kotlinx.coroutines.flow.Flow
 
-//класс с помощью которого осуществялется доступ к базе данных (для того чтобы запичывать либы считывать)
+//класс с помощью которого осуществялется доступ к базе данных (для того чтобы запиcывать либо считывать)
 @Dao
 interface Dao {
     @Query("SELECT * FROM note_list")
