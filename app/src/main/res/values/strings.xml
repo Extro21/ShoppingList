@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ShoppingList</string>
+    <string name="setting">Setting</string>
+    <string name="notes">Notes</string>
+    <string name="shop_list">Shop list</string>
+    <string name="new_note">New</string>
 </resources>

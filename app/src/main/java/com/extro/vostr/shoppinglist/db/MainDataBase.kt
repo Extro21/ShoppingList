@@ -14,7 +14,7 @@ import com.extro.vostr.shoppinglist.entities.ShoppingListNames
     ShoppingListItem::class, ShoppingListNames::class], version = 1)
 abstract class MainDataBase : RoomDatabase() {
 
-    abstract fun getDao() : Dao
+  //  abstract fun getDao() : Dao
 
     companion object {
        @Volatile
