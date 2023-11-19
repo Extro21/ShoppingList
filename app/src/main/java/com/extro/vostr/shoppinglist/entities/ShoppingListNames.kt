@@ -30,4 +30,4 @@ data class ShoppingListNames(
     val itemsIds: String,
 
 
-    ): Serializable //чтобы передавать весь класс
+    ): Serializable //чтобы передавать весь класс а не по элементам

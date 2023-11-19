@@ -43,18 +43,21 @@ android {
 
 dependencies {
 //new
-//    implementation("androidx.room:room-ktx:2.5.2")
 //    annotationProcessor("androidx.room:room-compiler:2.5.2")
-//    kapt("androidx.room:room-compiler:2.5.2")
-//    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
-//    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
-//    implementation("androidx.preference:preference-ktx:1.2.1")
+
+
+
+    implementation("androidx.preference:preference-ktx:1.2.1")
+
+    //ViewModel and livedata
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
 
     // RoomDatabase
  //   def room_version = "2.3.0"
-    implementation("androidx.room:room-runtime:2.5.2")
-    kapt("androidx.room:room-compiler:2.5.2")
-    implementation("androidx.room:room-ktx:2.5.2")
+    implementation("androidx.room:room-runtime:2.6.0")
+    kapt("androidx.room:room-compiler:2.6.0")
+    implementation("androidx.room:room-ktx:2.6.0")
 
 // Coroutines
  //   def coroutines_version = "1.3.9"
