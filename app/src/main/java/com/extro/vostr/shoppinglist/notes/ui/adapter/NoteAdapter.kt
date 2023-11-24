@@ -1,4 +1,4 @@
-package com.extro.vostr.shoppinglist.db
+package com.extro.vostr.shoppinglist.notes.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.View

@@ -1,7 +1,8 @@
-package com.extro.vostr.shoppinglist.db
+package com.extro.vostr.shoppinglist.notes.data.db
 
 import androidx.room.Dao
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.extro.vostr.shoppinglist.entities.NoteItem
 import kotlinx.coroutines.flow.Flow
@@ -12,7 +13,7 @@ interface Dao {
     @Query("SELECT * FROM note_list")
     fun getAllNotes(): Flow<List<NoteItem>>
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertNote(note : NoteItem)
 
 
