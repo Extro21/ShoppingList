@@ -16,6 +16,12 @@ interface Dao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertNote(note : NoteItem)
 
+    @Query("SELECT * FROM note_list WHERE id = :noteId")
+    suspend fun getNote(noteId : Int) : NoteItem
+
+
+
+
 
 
 }

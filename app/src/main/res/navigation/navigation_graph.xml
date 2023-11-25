@@ -9,7 +9,11 @@
         android:id="@+id/shoplistFragment"
         android:name="com.extro.vostr.shoppinglist.shopList.ui.fragments.ShoplistFragment"
         android:label="fragment_shoplist"
-        tools:layout="@layout/fragment_shoplist" />
+        tools:layout="@layout/fragment_shoplist" >
+        <action
+            android:id="@+id/action_shoplistFragment_to_newShopListFragment"
+            app:destination="@id/newShopListFragment" />
+    </fragment>
     <fragment
         android:id="@+id/settingFragment"
         android:name="com.extro.vostr.shoppinglist.setting.ui.fragments.SettingFragment"
@@ -29,4 +33,9 @@
             android:id="@+id/action_noteFragment2_to_newNoteFragment"
             app:destination="@id/newNoteFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/newShopListFragment"
+        android:name="com.extro.vostr.shoppinglist.shopList.ui.fragments.NewShopListFragment"
+        android:label="fragment_new_shop_list"
+        tools:layout="@layout/fragment_new_shop_list" />
 </navigation>

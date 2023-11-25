@@ -10,5 +10,8 @@ class NoteViewModel(private val interactor : NoteInteractor) : ViewModel() {
 
     fun getNotesNow() : Flow<List<NoteItem>> = interactor.getNotes()
 
+    // suspend fun getNote(id : Int) : NoteItem = interactor.getNote(id)
+
+
 
 }

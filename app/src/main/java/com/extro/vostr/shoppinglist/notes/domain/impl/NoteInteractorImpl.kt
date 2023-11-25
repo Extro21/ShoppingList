@@ -15,5 +15,5 @@ class NoteInteractorImpl(private val repository: NoteRepository) : NoteInteracto
          return repository.getNotes()
      }
 
-
+    override suspend fun getNote(idNote: Int): NoteItem  = repository.getNote(idNote)
 }

@@ -4,17 +4,20 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.extro.vostr.shoppinglist.entities.ItemForShopList
 import com.extro.vostr.shoppinglist.entities.LibraryItem
 import com.extro.vostr.shoppinglist.entities.NoteItem
 import com.extro.vostr.shoppinglist.entities.ShoppingListItem
 import com.extro.vostr.shoppinglist.entities.ShoppingListNames
+import com.extro.vostr.shoppinglist.shopList.data.db.ShopListDao
 
 //База данных
 @Database(entities = [LibraryItem::class, NoteItem::class,
-    ShoppingListItem::class, ShoppingListNames::class], version = 1)
+    ShoppingListItem::class, ShoppingListNames::class, ItemForShopList::class], version = 1)
 abstract class MainDataBase : RoomDatabase() {
 
     abstract fun getDao() : Dao
+    abstract fun shopListDao() : ShopListDao
 
 //    companion object {
 //       @Volatile

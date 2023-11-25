@@ -7,6 +7,9 @@ import com.extro.vostr.shoppinglist.notes.di.dataModule
 import com.extro.vostr.shoppinglist.notes.di.interactorModule
 import com.extro.vostr.shoppinglist.notes.di.repositoryModule
 import com.extro.vostr.shoppinglist.notes.di.viewModelNote
+import com.extro.vostr.shoppinglist.shopList.di.repositoryShoplistModule
+import com.extro.vostr.shoppinglist.shopList.di.shopListInteractorViewModule
+import com.extro.vostr.shoppinglist.shopList.di.shopListViewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -23,7 +26,8 @@ class MainApp : Application(){
 
             modules(
                 listOf(
-                    repositoryModule, dataModule, interactorModule, viewModelNote
+                    repositoryModule, dataModule, interactorModule, viewModelNote,
+                    repositoryShoplistModule, shopListInteractorViewModule, shopListViewModelModule
                 )
             )
         }

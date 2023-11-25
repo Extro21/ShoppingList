@@ -10,4 +10,6 @@ interface NoteInteractor {
 
 
     fun getNotes() : Flow<List<NoteItem>>
+
+    suspend fun getNote(idNote : Int) : NoteItem
 }

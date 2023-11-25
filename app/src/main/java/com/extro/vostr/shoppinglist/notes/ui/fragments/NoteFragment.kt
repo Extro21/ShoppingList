@@ -23,7 +23,14 @@ class NoteFragment : Fragment() {
     private lateinit var binding: FragmentNoteAppBinding
     private val viewModel: NoteViewModel by viewModel()
 
-    private val adapter: NoteAdapter = NoteAdapter()
+    private var adapter = NoteAdapter {
+        Log.d("checkClick", "checkClick")
+        findNavController().navigate(
+            R.id.action_noteFragment2_to_newNoteFragment,
+            NewNoteFragment.createArgs(it.id, it.title, it.content)
+        )
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -51,8 +58,12 @@ class NoteFragment : Fragment() {
         }
 
         binding.newNote.setOnClickListener {
-            findNavController().navigate(R.id.action_noteFragment2_to_newNoteFragment)
+            findNavController().navigate(
+                R.id.action_noteFragment2_to_newNoteFragment,
+                NewNoteFragment.createArgs(null, null, null)
+            )
         }
+
 
 
     }

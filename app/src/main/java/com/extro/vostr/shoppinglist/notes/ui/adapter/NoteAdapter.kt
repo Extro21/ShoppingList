@@ -11,7 +11,8 @@ import com.extro.vostr.shoppinglist.R
 import com.extro.vostr.shoppinglist.databinding.NoteListItemBinding
 import com.extro.vostr.shoppinglist.entities.NoteItem
 
-class NoteAdapter : ListAdapter<NoteItem, NoteAdapter.ItemHolder>(ItemComparator()) {
+class NoteAdapter(private val clickListener: ItemClickListener) :
+    ListAdapter<NoteItem, NoteAdapter.ItemHolder>(ItemComparator()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemHolder {
         return ItemHolder.create(parent)
@@ -19,6 +20,9 @@ class NoteAdapter : ListAdapter<NoteItem, NoteAdapter.ItemHolder>(ItemComparator
 
     override fun onBindViewHolder(holder: ItemHolder, position: Int) {
         holder.setData(getItem(position))
+        holder.itemView.setOnClickListener {
+            clickListener.onItemListener(getItem(position))
+        }
     }
 
     class ItemHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -32,20 +36,21 @@ class NoteAdapter : ListAdapter<NoteItem, NoteAdapter.ItemHolder>(ItemComparator
         companion object {
             fun create(parent: ViewGroup): ItemHolder {
                 return ItemHolder(
-                    LayoutInflater.from(parent.context).inflate(R.layout.note_list_item, parent, false)
+                    LayoutInflater.from(parent.context)
+                        .inflate(R.layout.note_list_item, parent, false)
                 )
             }
         }
     }
 
 
-    class ItemComparator : DiffUtil.ItemCallback<NoteItem>(){
+    class ItemComparator : DiffUtil.ItemCallback<NoteItem>() {
         override fun areItemsTheSame(oldItem: NoteItem, newItem: NoteItem): Boolean {
-           return oldItem.id == newItem.id
+            return oldItem.id == newItem.id
         }
 
         override fun areContentsTheSame(oldItem: NoteItem, newItem: NoteItem): Boolean {
-        return oldItem == newItem
+            return oldItem == newItem
         }
     }
 }

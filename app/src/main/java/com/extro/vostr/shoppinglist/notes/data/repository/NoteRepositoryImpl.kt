@@ -23,6 +23,10 @@ class NoteRepositoryImpl(private val dataBase: MainDataBase) : NoteRepository {
 
      override fun getNotes() : Flow<List<NoteItem>> = dataBase.getDao().getAllNotes()
 
+    override suspend fun getNote(idNote : Int) : NoteItem {
+       return dataBase.getDao().getNote(idNote)
+    }
+
 
 
 }
