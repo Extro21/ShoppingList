@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/settingFragment"
+        android:icon="@drawable/settings_image_menu"
+        android:title="@string/setting"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/noteFragment"
+        android:icon="@drawable/note_image_menu"
+        android:title="@string/notes"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/shoplistFragment"
+        android:icon="@drawable/list_image_menu"
+        android:title="@string/shop_list"
+        app:showAsAction="ifRoom" />
+
+
+
+</menu>

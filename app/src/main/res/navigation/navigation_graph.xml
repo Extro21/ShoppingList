@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/noteFragment">
+
+    <fragment
+        android:id="@+id/shoplistFragment"
+        android:name="com.extro.vostr.shoppinglist.shopList.ui.fragments.ShoplistFragment"
+        android:label="fragment_shoplist"
+        tools:layout="@layout/fragment_shoplist" >
+        <action
+            android:id="@+id/action_shoplistFragment_to_newShopListFragment"
+            app:destination="@id/newShopListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.extro.vostr.shoppinglist.setting.ui.fragments.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting" />
+    <fragment
+        android:id="@+id/newNoteFragment"
+        android:name="com.extro.vostr.shoppinglist.notes.ui.fragments.NewNoteFragment"
+        android:label="fragment_new_note"
+        tools:layout="@layout/fragment_new_note" />
+    <fragment
+        android:id="@+id/noteFragment"
+        android:name="com.extro.vostr.shoppinglist.notes.ui.fragments.NoteFragment"
+        android:label="fragment_note_app"
+        tools:layout="@layout/fragment_note_app" >
+        <action
+            android:id="@+id/action_noteFragment2_to_newNoteFragment"
+            app:destination="@id/newNoteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newShopListFragment"
+        android:name="com.extro.vostr.shoppinglist.shopList.ui.fragments.NewShopListFragment"
+        android:label="fragment_new_shop_list"
+        tools:layout="@layout/fragment_new_shop_list" />
+</navigation>
