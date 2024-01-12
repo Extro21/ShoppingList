@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Transaction
 import com.extro.vostr.shoppinglist.entities.ItemForShopList
 import com.extro.vostr.shoppinglist.entities.ShoppingListItem
 import com.extro.vostr.shoppinglist.entities.ShoppingListNames
@@ -21,6 +22,12 @@ interface ShopListDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addItem(shoppingListItem: ShoppingListItem)
 
+    @Transaction
+     suspend fun addItemShopList(shoppingListNames: ShoppingListNames, shoppingListItem: ShoppingListItem) {
+        addShoplist(shoppingListNames)
+        addItem(shoppingListItem)
+    }
+
     @Query("SELECT idItem FROM (SELECT idItem FROM shop_list_item ORDER BY idItem DESC LIMIT :countItem) t ORDER BY idItem")
     suspend fun getSelectIdItem(countItem : Int) : List<Int>
 
@@ -30,8 +37,13 @@ interface ShopListDao {
     @Query("SELECT * FROM shopping_list_names")
     fun getShopList() : Flow<List<ShoppingListNames>>
 
-//    @Query("SELECT * FROM items_shoplist INNER JOIN shop_list_item ON shop_list_item.idItem == items_shoplist.idItem WHERE items_shoplist.isShoplist == :shopListId")
-//    fun getItemsByShopList(shopListId : Int): Flow<List<ItemForShopList>>
+    @Query("SELECT * FROM shop_list_item INNER JOIN items_shoplist ON shop_list_item.idItem == items_shoplist.idItem WHERE items_shoplist.idShoplist == :shopListId")
+    fun getItemsByShopList(shopListId : Int): Flow<List<ShoppingListItem>>
+
+//    @Query("SELECT name FROM shopping_list_names")
+//    suspend fun getNameShopListForID(shopListId : Int) : String
+
+
 
 
 }

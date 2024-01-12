@@ -14,4 +14,11 @@ class NewNoteViewModel(private val interactor: NoteInteractor)  : ViewModel() {
             interactor.addNote(title, content)
         }
     }
+
+    fun updateNote(id : Int, title: String, content: String) {
+        viewModelScope.launch{
+            interactor.updateNote(id, title, content)
+        }
+    }
+
 }

@@ -12,4 +12,8 @@ interface NoteRepository {
 
     suspend fun getNote(idNote : Int) : NoteItem
 
+    suspend fun updateNote(id : Int, title: String, content: String)
+
+    suspend fun deleteNote(id : Int)
+
 }

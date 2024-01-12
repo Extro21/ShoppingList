@@ -14,6 +14,7 @@ import com.extro.vostr.shoppinglist.entities.NoteItem
 class NoteAdapter(private val clickListener: ItemClickListener) :
     ListAdapter<NoteItem, NoteAdapter.ItemHolder>(ItemComparator()) {
 
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemHolder {
         return ItemHolder.create(parent)
     }
@@ -22,6 +23,10 @@ class NoteAdapter(private val clickListener: ItemClickListener) :
         holder.setData(getItem(position))
         holder.itemView.setOnClickListener {
             clickListener.onItemListener(getItem(position))
+        }
+        holder.itemView.setOnLongClickListener {
+            clickListener.onItemLongListener(getItem(position).id)
+            true
         }
     }
 
@@ -53,4 +58,12 @@ class NoteAdapter(private val clickListener: ItemClickListener) :
             return oldItem == newItem
         }
     }
+
+    fun updateFile(filterItem: List<NoteItem>) {
+        currentList.clear()
+        currentList.addAll(filterItem)
+        notifyDataSetChanged()
+    }
+
+
 }

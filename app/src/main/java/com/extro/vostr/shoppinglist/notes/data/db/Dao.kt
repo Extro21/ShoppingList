@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Update
 import com.extro.vostr.shoppinglist.entities.NoteItem
 import kotlinx.coroutines.flow.Flow
 
@@ -18,6 +19,12 @@ interface Dao {
 
     @Query("SELECT * FROM note_list WHERE id = :noteId")
     suspend fun getNote(noteId : Int) : NoteItem
+
+    @Update
+    suspend fun createNote(note: NoteItem)
+
+    @Query("DELETE FROM note_list WHERE id is :id")
+    suspend fun deleteNoteForId(id : Int)
 
 
 

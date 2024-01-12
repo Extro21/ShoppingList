@@ -16,4 +16,12 @@ class NoteInteractorImpl(private val repository: NoteRepository) : NoteInteracto
      }
 
     override suspend fun getNote(idNote: Int): NoteItem  = repository.getNote(idNote)
+
+    override suspend fun updateNote(id : Int, title: String, content: String) {
+        repository.updateNote(id, title, content)
+    }
+
+    override suspend fun deleteNote(id: Int) {
+        repository.deleteNote(id)
+    }
 }

@@ -16,6 +16,6 @@ val repositoryModule = module {
 
 val dataModule = module {
     single {
-        Room.databaseBuilder(androidContext(), MainDataBase::class.java, "shopNoteList5.db").build()
+        Room.databaseBuilder(androidContext(), MainDataBase::class.java, "shopNoteList8.db").build()
     }
 }
